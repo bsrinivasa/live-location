@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Where am I?</title>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link href='https://api.mapbox.com/mapbox-assembly/v0.15.0/assembly.min.css' rel='stylesheet'>
+  <script async defer src='https://api.mapbox.com/mapbox-assembly/v0.15.0/assembly.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.39.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="lib/jquery.rss.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+  <style type="text/css">
+    p {
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .h480 {
+      height: 480px;
+    }
+    .wmax520 {
+      max-width: 520px;
+    }
+    .city {
+      cursor: pointer;
+    }
+    .photo:hover {
+      opacity: 0.9;
+    }
+    .footer {
+      font-size: 12px;
+    }
+    .spinner {
+      display: inline-block;
+    }
+    .dot {
+      background: #42ADE2;
+      box-shadow: #42ADE2 0 0 0 2px;
+      border: 2px solid #2299db;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-top: 2px;
+      position: relative;
+      text-align: center;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      -webkit-animation:  pulse 1.6s;
+      -moz-animation:     pulse 1.6s;
+      -o-animation:       pulse 1.6s;
+      -ms-animation:      pulse 1.6s;
+      animation:          pulse 1.6s;
+      -webkit-animation-iteration-count: infinite;
+      -moz-animation-iteration-count: infinite;
+      -o-animation-iteration-count: infinite;
+      -ms-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+    }
+    @-webkit-keyframes pulse {
+      0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+      }
+      70% {
+        -webkit-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
+    @-o-keyframes pulse {
+      0% {
+        -o-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+      }
+      70% {
+        -o-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -o-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
+    @-ms-keyframes pulse {
+      0% {
+        -ms-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+      }
+      70% {
+        -ms-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -ms-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
+    @keyframes pulse {
+      0% {
+        -moz-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.8);
+        box-shadow: 0 0 0 0 rgba(66, 173, 226, 0.4);
+      }
+      70% {
+        -moz-box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+        box-shadow: 0 0 0 30px rgba(66, 173, 226, 0);
+      }
+      100% {
+        -moz-box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+        box-shadow: 0 0 0 0 rgba(66, 173, 226, 0);
+      }
+    }
+  </style>
+</head>
+<body class="mx18 my18">
+  <div class='flex-parent flex-parent--column flex-parent--column-mm flex-parent--row-ml'>
+    <div class="wmax600 mr12-ml mr12-mxl">
+        <div class="prose txt-l txt-bold">
+          <h1>Hello! Find me here..</h1>
+        </div>
+      <div class="cities flex-parent flex-parent--column flex-parent--row-ml flex-parent--row-mxl">
+        <div class="col px6 py6 mx0-mm my6 border-b border--blue">
+          <span class="dot"></span>
+          <span class="status"></span>
+          <span class="spinner"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='map' class='flex-child--grow wmin-auto h480 hmin600-ml hmin600-mxl my-auto-mm'></div>
+</body>
+<script type="text/javascript" src="./js/app.js"></script>
+</html>
